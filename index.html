@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es" class="scroll-smooth">
 <head>
   <meta charset="utf-8">
@@ -23,14 +23,13 @@
 
 <nav class="fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl transition dark:border-slate-800 dark:bg-slate-950/90" data-navbar>
   <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 lg:px-8">
-    <a href="index.html" class="flex min-h-12 items-center" aria-label="TecnoMedia - Inicio">
-      <picture>
-        <source media="(prefers-color-scheme: dark)" srcset="assets/logos/tecnomedia-dark.png">
-        <img src="assets/logos/tecnomedia-light.png" alt="TecnoMedia" class="h-11 w-auto max-w-56 object-contain dark:hidden" data-brand-light onerror="this.classList.add('hidden');this.parentElement.nextElementSibling.classList.remove('hidden')">
-      </picture>
-      <span class="hidden text-xl font-extrabold tracking-tight text-slate-950 dark:text-white">TecnoMedia<span class="text-sky-600">.</span></span>
-      <img src="assets/logos/tecnomedia-dark.png" alt="TecnoMedia" class="hidden h-11 w-auto max-w-56 object-contain dark:block" data-brand-dark onerror="this.classList.add('hidden')">
-    </a>
+    <a href="index.html" class="tm-brand" aria-label="TecnoMedia - Inicio">
+  <span class="tm-brand-stage" aria-hidden="true">
+    <img src="assets/logos/tecnomedia-light.png" alt="" class="tm-brand-logo tm-brand-logo-light">
+    <img src="assets/logos/tecnomedia-dark.png" alt="" class="tm-brand-logo tm-brand-logo-dark">
+  </span>
+  
+</a>
 
     <div class="hidden items-center gap-1 lg:flex">
       <a class="nav-link" data-nav="home" href="index.html">Inicio</a>
@@ -74,7 +73,7 @@
 <main>
   <section class="hero-shell relative overflow-hidden pt-32 pb-20 sm:pt-36 lg:pt-40 lg:pb-28">
     <div class="hero-grid absolute inset-0 opacity-70 dark:opacity-30"></div>
-    <div class="hero-orb hero-orb-a"></div><div class="hero-orb hero-orb-b"></div>
+    <div class="hero-orb hero-orb-a"></div>
     <div class="relative mx-auto grid max-w-7xl items-center gap-14 px-5 lg:grid-cols-2 lg:px-8">
       <div class="reveal text-left">
         <span class="eyebrow">Tecnología con enfoque de negocio</span>
@@ -136,53 +135,124 @@
     </div>
   </section>
 
-  <section class="bg-slate-50 py-24 dark:bg-slate-900/50 sm:py-28">
-    <div class="mx-auto max-w-7xl px-5 lg:px-8">
-      <div class="text-left reveal"><span class="eyebrow">Alianzas</span><h2 class="section-title mt-4">Tecnología líder, integrada por especialistas.</h2><p class="section-copy mt-5">Un ecosistema de fabricantes y plataformas para construir soluciones completas.</p></div>
-      <div class="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="partner-card reveal"><img src="assets/logos/partners/appdynamics.png" alt="AppDynamics"><span>AppDynamics</span></div>
-        <div class="partner-card reveal"><img src="assets/logos/partners/datadog.png" alt="Datadog"><span>Datadog</span></div>
-        <div class="partner-card reveal"><img src="assets/logos/partners/splunk.png" alt="Splunk"><span>Splunk</span></div>
-        <div class="partner-card reveal"><img src="assets/logos/partners/grafana.png" alt="Grafana"><span>Grafana</span></div>
-      </div>
-      <a class="btn-secondary mt-8" href="alianzas.html">Ver todas las alianzas</a>
+    <section class="bg-slate-50 py-16 dark:bg-slate-900/50 sm:py-20">
+  <div class="mx-auto max-w-7xl px-5 lg:px-8">
+    <div class="text-left reveal">
+      <span class="eyebrow">Alianzas</span>
+      <h2 class="section-title mt-4">Tecnologí­a líder, integrada por especialistas.</h2>
+      <p class="section-copy mt-5">Un ecosistema de fabricantes y plataformas para construir soluciones completas.</p>
     </div>
-  </section>
+
+    <div class="partners-grid mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+        <a class="partner-card reveal" href="https://www.appdynamics.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir sitio de AppDynamics">
+          <img src="assets/logos/partners/appdynamics.png" alt="AppDynamics" loading="lazy">
+          <span>AppDynamics</span>
+        </a>
+        <a class="partner-card reveal" href="https://www.harness.io/" target="_blank" rel="noopener noreferrer" aria-label="Abrir sitio de Harness">
+          <img src="assets/logos/partners/harness.jpg" alt="Harness" loading="lazy">
+          <span>Harness</span>
+        </a>
+        <a class="partner-card reveal" href="https://www.veracode.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir sitio de Veracode">
+          <img src="assets/logos/partners/veracode.jpg" alt="Veracode" loading="lazy">
+          <span>Veracode</span>
+        </a>
+        <a class="partner-card reveal" href="https://www.netscout.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir sitio de NETSCOUT">
+          <img src="assets/logos/partners/netscout.jpg" alt="NETSCOUT" loading="lazy">
+          <span>NETSCOUT</span>
+        </a>
+        <a class="partner-card reveal" href="https://cloud.google.com/apigee" target="_blank" rel="noopener noreferrer" aria-label="Abrir sitio de Google Apigee">
+          <img src="assets/logos/partners/apigee.png" alt="Google Apigee" loading="lazy">
+          <span>Google Apigee</span>
+        </a>
+        <a class="partner-card reveal" href="https://www.datadoghq.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir sitio de Datadog">
+          <img src="assets/logos/partners/datadog.jpg" alt="Datadog" loading="lazy">
+          <span>Datadog</span>
+        </a>
+        <a class="partner-card reveal" href="https://www.cyberark.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir sitio de CyberArk">
+          <img src="assets/logos/partners/cyberark.jpeg" alt="CyberArk" loading="lazy">
+          <span>CyberArk</span>
+        </a>
+        <a class="partner-card reveal" href="https://solace.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir sitio de Solace">
+          <img src="assets/logos/partners/solace.png" alt="Solace" loading="lazy">
+          <span>Solace</span>
+        </a>
+        <a class="partner-card reveal" href="https://www.splunk.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir sitio de Splunk">
+          <img src="assets/logos/partners/splunk.svg" alt="Splunk" loading="lazy">
+          <span>Splunk</span>
+        </a>
+        <a class="partner-card reveal" href="https://grafana.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir sitio de Grafana">
+          <img src="assets/logos/partners/grafana.svg" alt="Grafana" loading="lazy">
+          <span>Grafana</span>
+        </a>
+        <a class="partner-card reveal" href="https://www.aikido.dev/" target="_blank" rel="noopener noreferrer" aria-label="Abrir sitio de Aikido">
+          <img src="assets/logos/partners/aikido.svg" alt="Aikido" loading="lazy">
+          <span>Aikido</span>
+        </a>
+    </div>
+
+    <a class="btn-secondary mt-8" href="alianzas.html">Ver todas las alianzas</a>
+  </div>
+</section>
 
   <section class="py-24 sm:py-28"><div class="mx-auto max-w-7xl px-5 lg:px-8"><div class="spotlight reveal"><div class="max-w-3xl text-left"><h2 class="text-4xl font-extrabold tracking-tight text-white">¿Quieres revisar tu operación digital?</h2><p class="mt-4 text-lg text-slate-300">Cuéntanos el reto y te ayudamos a ubicar la solución adecuada.</p></div><a class="btn-light" href="contacto.html">Contactar a TecnoMedia</a></div></div></section>
 </main>
 
-<footer class="border-t border-slate-200 bg-slate-50 py-14 text-slate-600 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-400">
-  <div class="mx-auto max-w-7xl px-5 lg:px-8">
-    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-      <div class="lg:col-span-2">
-        <div class="mb-5 text-2xl font-extrabold tracking-tight text-slate-950 dark:text-white">TecnoMedia<span class="text-sky-600">.</span></div>
-        <p class="max-w-xl leading-7">Soluciones de tecnología para operar, observar y proteger experiencias digitales con una visión integral de negocio.</p>
+<footer class="tm-footer">
+  <div class="tm-footer-inner">
+    <div class="tm-footer-grid">
+
+      <div class="tm-footer-brand">
+        <a href="index.html" class="tm-footer-logo-link" aria-label="TecnoMedia - Inicio">
+          <span class="tm-footer-logo-stage">
+            <img src="assets/logos/tecnomedia-dark.png" alt="TecnoMedia" class="tm-footer-logo">
+          </span>
+        </a>
+        <p>Soluciones de tecnologí­a para operar, observar y proteger experiencias digitales.</p>
       </div>
+
       <div>
-        <h2 class="mb-4 text-sm font-extrabold uppercase tracking-widest text-slate-950 dark:text-white">Navegación</h2>
-        <div class="grid gap-3 text-sm">
-          <a class="footer-link" href="acerca-de.html">Acerca de</a>
-          <a class="footer-link" href="alianzas.html">Alianzas</a>
-          <a class="footer-link" href="contacto.html">Contacto</a>
-          <a class="footer-link" href="aviso-privacidad.html">Aviso de privacidad</a>
-        </div>
+        <h3>Empresa</h3>
+        <nav class="tm-footer-links" aria-label="Empresa">
+          <a href="acerca-de.html">Acerca de</a>
+          <a href="alianzas.html">Alianzas</a>
+          <a href="contacto.html">Contacto</a>
+        </nav>
       </div>
+
       <div>
-        <h2 class="mb-4 text-sm font-extrabold uppercase tracking-widest text-slate-950 dark:text-white">Contacto</h2>
-        <div class="grid gap-3 text-sm">
-          <span>+52 55 5254 6809</span>
-          <a class="footer-link" href="mailto:contacto@tecnomedia.com.mx">contacto@tecnomedia.com.mx</a>
+        <h3>Soluciones</h3>
+        <nav class="tm-footer-links" aria-label="Soluciones">
+          <a href="devsecops.html">DevSecOps</a>
+          <a href="observabilidad.html">Observabilidad</a>
+          <a href="ciberseguridad.html">Ciberseguridad</a>
+        </nav>
+      </div>
+
+      <div>
+        <h3>Contacto</h3>
+        <div class="tm-footer-links">
+          <a href="tel:+525552546809">+52 55 5254 6809</a>
+          <a href="mailto:contacto@tecnomedia.com.mx">contacto@tecnomedia.com.mx</a>
           <span>Lafayette 123, Nueva Anzures, Miguel Hidalgo, CDMX.</span>
         </div>
       </div>
+
     </div>
-    <div class="mt-12 flex flex-col gap-3 border-t border-slate-200 pt-6 text-sm dark:border-slate-800 md:flex-row md:items-center md:justify-between">
-      <span>© <span data-year></span> TecnoMedia. Todos los derechos reservados.</span>
-      <span>DevSecOps · Observabilidad · Ciberseguridad</span>
+
+    <div class="tm-footer-bottom">
+      <span>© <span data-year></span> TecnoMedia.</span>
+      <a href="aviso-privacidad.html">Aviso de privacidad</a>
     </div>
   </div>
 </footer>
 
 <script src="assets/js/app.js" defer></script>
 </body></html>
+
+
+
+
+
+
+
+

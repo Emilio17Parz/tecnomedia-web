@@ -4,3 +4,11 @@ node_modules/
 .vscode/
 .DS_Store
 Thumbs.db
+
+_backup-ui-*/
+
+_backup-footer-*/
+
+_backup-footer-*/
+
+_backup-footer-*/
