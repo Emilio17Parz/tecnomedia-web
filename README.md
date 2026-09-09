@@ -1,76 +1,59 @@
-# TecnoMedia Modern — sitio estático
+# TecnoMedia — rediseño Tailwind v2
 
-Rediseño frontend de TecnoMedia construido con:
+Segunda versión del sitio corporativo. Mantiene HTML estático y JavaScript vanilla, reemplaza Bootstrap por Tailwind CSS y no incorpora React porque el sitio no necesita una SPA.
 
-- HTML5
-- CSS3
-- JavaScript vanilla
-- Bootstrap 5.3.3
-- Bootstrap Icons
-- Google Fonts (Inter)
-- FormSubmit para el formulario sin backend propio
+## Cambios incluidos
 
-## Estructura
+- Tailwind CSS 4 (CSS ya compilado dentro del ZIP).
+- Dark mode manual con persistencia en `localStorage`.
+- Animaciones con `IntersectionObserver` y respeto a `prefers-reduced-motion`.
+- Navegación "Acerca de" y redirección desde `nosotros.html`.
+- Métricas del hero apiladas en móvil; en `sm` pasan a tres columnas.
+- Alineación de títulos y textos consistente a la izquierda.
+- Logos y tarjetas de alianzas más grandes.
+- Alianzas agregadas: Splunk, Grafana y Aikido.
+- Aviso de privacidad enlazado localmente desde footer y formulario.
+- Formulario sin backend propio usando FormSubmit.
+- Logos de TecnoMedia preparados para uso local.
 
-```text
-tecnomedia-modern/
-├─ index.html
-├─ nosotros.html
-├─ devsecops.html
-├─ observabilidad.html
-├─ ciberseguridad.html
-├─ alianzas.html
-├─ contacto.html
-└─ assets/
-   ├─ css/
-   │  └─ styles.css
-   └─ js/
-      └─ main.js
+## Probar sin instalar nada
+
+El archivo `assets/css/tailwind.css` ya viene compilado, así que puedes abrir `index.html` o usar Live Server.
+
+## Recompilar Tailwind
+
+Si modificas clases Tailwind:
+
+```powershell
+npm install
+npm run build:css
 ```
 
-## Cómo probarlo
+## Preparar los logos de TecnoMedia
 
-Puedes abrir `index.html` directamente, aunque lo ideal es levantar un servidor local.
+Copia tus logos a `assets/logos/` y luego:
 
-### VS Code
-Instala la extensión **Live Server**, haz clic derecho sobre `index.html` y selecciona **Open with Live Server**.
-
-### Python
-Desde la carpeta del proyecto:
-
-```bash
-python -m http.server 5500
+```powershell
+.\scripts\preparar-logos.ps1
 ```
 
-Luego abre:
+Después revisa `assets/logos/README.md` para los nombres de alianzas.
 
-```text
-http://localhost:5500
+## Git — reemplazar contenido de la rama de rediseño
+
+Desde tu repo local:
+
+```powershell
+git switch redesign-tailwind
 ```
 
-## Formulario sin backend
+Copia el contenido de este proyecto encima del repo y conserva tus archivos reales de `assets/logos/`.
 
-`contacto.html` está configurado con:
+Luego:
 
-```html
-<form action="https://formsubmit.co/contacto@tecnomedia.com.mx" method="POST">
+```powershell
+git status
+git add .
+git commit -m "Rediseño Tailwind, dark mode, animaciones y alianzas"
+git push
 ```
-
-Esto evita mantener un backend propio, pero el envío pasa por un tercero (FormSubmit).
-
-### Primera activación
-La primera vez que se envíe un formulario, FormSubmit pedirá confirmar el correo `contacto@tecnomedia.com.mx`.
-
-### Para producción
-Recomendado:
-
-1. Confirmar el correo de destino.
-2. Probar CAPTCHA y spam.
-3. Revisar el aviso de privacidad.
-4. Si se requiere control total de datos, sustituir FormSubmit por una función serverless (Cloudflare Workers, Vercel Functions, AWS Lambda, etc.).
-
-## Notas
-
-- Los logos de TecnoMedia y varias alianzas se cargan desde el sitio actual `tecnomedia.com.mx`. Para evitar depender del sitio viejo, conviene descargar esos recursos y servirlos localmente antes del lanzamiento.
-- El proyecto mantiene las áreas actuales: DevSecOps, Observabilidad y Ciberseguridad.
-- El diseño es responsive y no usa jQuery ni Slick.

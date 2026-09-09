@@ -1,7 +1,14 @@
-﻿node_modules/
-dist/
+node_modules/
 .env
 .env.*
 .vscode/
 .DS_Store
 Thumbs.db
+
+_backup-ui-*/
+
+_backup-footer-*/
+
+_backup-footer-*/
+
+_backup-footer-*/

@@ -1,246 +1,258 @@
-<!doctype html>
-<html lang="es">
+﻿<!doctype html>
+<html lang="es" class="scroll-smooth">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="TecnoMedia: soluciones de DevSecOps, Observabilidad y Ciberseguridad para experiencias digitales confiables.">
-  <meta name="theme-color" content="#07111f">
-  <title>TecnoMedia | Tecnología, Observabilidad y Ciberseguridad</title>
-
+  <meta name="description" content="Soluciones de DevSecOps, Observabilidad y Ciberseguridad para experiencias digitales confiables.">
+  <meta name="theme-color" content="#020617">
+  <title>TecnoMedia | DevSecOps, Observabilidad y Ciberseguridad</title>
+  <script>
+  (() => {
+    const saved = localStorage.getItem('tm-theme');
+    const dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.classList.toggle('dark', dark);
+  })();
+</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="assets/css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/tailwind.css">
+  <link rel="stylesheet" href="assets/css/site.css">
 </head>
-<body data-page="home">
+<body data-page="home" class="bg-white font-sans text-slate-950 antialiased transition-colors dark:bg-slate-950 dark:text-white">
 
-<nav class="navbar navbar-expand-lg fixed-top bg-white" aria-label="Navegación principal">
-  <div class="container">
-    <a class="navbar-brand" href="index.html" aria-label="TecnoMedia - Inicio">
-      <img src="https://tecnomedia.com.mx/img/logo/logo.jpg" alt="TecnoMedia">
-    </a>
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir navegación">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<nav class="fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl transition dark:border-slate-800 dark:bg-slate-950/90" data-navbar>
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 lg:px-8">
+    <a href="index.html" class="tm-brand" aria-label="TecnoMedia - Inicio">
+  <span class="tm-brand-stage" aria-hidden="true">
+    <img src="assets/logos/tecnomedia-light.png" alt="" class="tm-brand-logo tm-brand-logo-light">
+    <img src="assets/logos/tecnomedia-dark.png" alt="" class="tm-brand-logo tm-brand-logo-dark">
+  </span>
+  
+</a>
 
-    <div class="collapse navbar-collapse" id="mainNav">
-      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
-        <li class="nav-item"><a class="nav-link px-lg-3" data-nav="home" href="index.html">Inicio</a></li>
-        <li class="nav-item"><a class="nav-link px-lg-3" data-nav="nosotros" href="nosotros.html">Nosotros</a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle px-lg-3" data-nav="soluciones" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Soluciones</a>
-          <ul class="dropdown-menu border-0 shadow rounded-4 p-2">
-            <li><a class="dropdown-item rounded-3 py-2" href="devsecops.html"><i class="bi bi-infinity me-2"></i>DevSecOps</a></li>
-            <li><a class="dropdown-item rounded-3 py-2" href="observabilidad.html"><i class="bi bi-activity me-2"></i>Observabilidad</a></li>
-            <li><a class="dropdown-item rounded-3 py-2" href="ciberseguridad.html"><i class="bi bi-shield-lock me-2"></i>Ciberseguridad</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link px-lg-3" data-nav="alianzas" href="alianzas.html">Alianzas</a></li>
-        <li class="nav-item"><a class="nav-link px-lg-3" data-nav="contacto" href="contacto.html">Contacto</a></li>
-      </ul>
-      <a class="btn btn-tm rounded-pill px-4 ms-lg-3 mt-3 mt-lg-0" href="contacto.html">Habla con un experto</a>
+    <div class="hidden items-center gap-1 lg:flex">
+      <a class="nav-link" data-nav="home" href="index.html">Inicio</a>
+      <a class="nav-link" data-nav="about" href="acerca-de.html">Acerca de</a>
+      <div class="group relative">
+        <button class="nav-link inline-flex items-center gap-1" type="button">Soluciones <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.51a.75.75 0 01-1.08 0l-4.25-4.51a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg></button>
+        <div class="invisible absolute left-0 top-full w-64 translate-y-2 rounded-2xl border border-slate-200 bg-white p-2 opacity-0 shadow-2xl transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 dark:border-slate-800 dark:bg-slate-900">
+          <a class="dropdown-link" href="devsecops.html"><span class="dropdown-icon">∞</span><span><strong>DevSecOps</strong><small>Entrega y automatización</small></span></a>
+          <a class="dropdown-link" href="observabilidad.html"><span class="dropdown-icon">◉</span><span><strong>Observabilidad</strong><small>Visibilidad end-to-end</small></span></a>
+          <a class="dropdown-link" href="ciberseguridad.html"><span class="dropdown-icon">◇</span><span><strong>Ciberseguridad</strong><small>Identidad y protección</small></span></a>
+        </div>
+      </div>
+      <a class="nav-link" data-nav="partners" href="alianzas.html">Alianzas</a>
+      <a class="nav-link" data-nav="contact" href="contacto.html">Contacto</a>
+      <button class="theme-button ml-2" type="button" data-theme-toggle aria-label="Cambiar tema"><span data-theme-icon>☾</span></button>
+      <a href="contacto.html" class="btn-primary ml-2">Habla con un experto</a>
+    </div>
+
+    <div class="flex items-center gap-2 lg:hidden">
+      <button class="theme-button" type="button" data-theme-toggle aria-label="Cambiar tema"><span data-theme-icon>☾</span></button>
+      <button class="mobile-button" type="button" data-menu-toggle aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="hidden border-t border-slate-200 bg-white px-5 py-4 dark:border-slate-800 dark:bg-slate-950 lg:hidden" data-mobile-menu>
+    <div class="mx-auto grid max-w-7xl gap-1">
+      <a class="mobile-link" href="index.html">Inicio</a>
+      <a class="mobile-link" href="acerca-de.html">Acerca de</a>
+      <div class="my-2 border-t border-slate-200 dark:border-slate-800"></div>
+      <p class="px-3 py-2 text-xs font-bold uppercase tracking-widest text-slate-400">Soluciones</p>
+      <a class="mobile-link" href="devsecops.html">DevSecOps</a>
+      <a class="mobile-link" href="observabilidad.html">Observabilidad</a>
+      <a class="mobile-link" href="ciberseguridad.html">Ciberseguridad</a>
+      <div class="my-2 border-t border-slate-200 dark:border-slate-800"></div>
+      <a class="mobile-link" href="alianzas.html">Alianzas</a>
+      <a class="mobile-link" href="contacto.html">Contacto</a>
+      <a class="btn-primary mt-3 text-center" href="contacto.html">Habla con un experto</a>
     </div>
   </div>
 </nav>
 
-<header class="hero">
-  <div class="container position-relative">
-    <div class="row align-items-center g-5">
-      <div class="col-lg-6">
-        <div class="eyebrow reveal">Tecnología con enfoque de negocio</div>
-        <h1 class="display-2 mb-4 reveal">Experiencias digitales <span class="text-gradient">confiables, visibles y seguras.</span></h1>
-        <p class="lead mb-4 reveal">Acompañamos a las organizaciones con soluciones especializadas de DevSecOps, Observabilidad y Ciberseguridad para operar mejor y responder más rápido.</p>
-        <div class="d-flex flex-wrap gap-3 reveal">
-          <a href="contacto.html" class="btn btn-tm btn-lg rounded-pill px-4">Solicitar asesoría <i class="bi bi-arrow-right ms-2"></i></a>
-          <a href="#soluciones" class="btn btn-outline-tm btn-lg rounded-pill px-4">Ver soluciones</a>
-        </div>
-        <div class="row g-3 mt-4 reveal">
-          <div class="col-6 col-md-4"><div class="metric"><small class="text-secondary d-block">Trayectoria</small><strong>Desde 1992</strong></div></div>
-          <div class="col-6 col-md-4"><div class="metric"><small class="text-secondary d-block">Enfoque</small><strong>End-to-end</strong></div></div>
-          <div class="col-12 col-md-4"><div class="metric"><small class="text-secondary d-block">Especialidad</small><strong>TI empresarial</strong></div></div>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="hero-visual reveal" aria-hidden="true">
-          <div class="orbit orbit-1"></div>
-          <div class="orbit orbit-2"></div>
-          <div class="orbit orbit-3"></div>
-          <div class="hero-core"><i class="bi bi-command"></i></div>
-          <div class="floating-badge badge-1"><i class="bi bi-infinity"></i> DevSecOps</div>
-          <div class="floating-badge badge-2"><i class="bi bi-activity"></i> Observabilidad</div>
-          <div class="floating-badge badge-3"><i class="bi bi-shield-check"></i> Ciberseguridad</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</header>
-
 <main>
-  <section class="section" id="soluciones">
-    <div class="container">
-      <div class="row justify-content-between align-items-end mb-5">
-        <div class="col-lg-7">
-          <div class="eyebrow reveal">Soluciones</div>
-          <h2 class="display-5 section-title reveal">Tres capacidades que se conectan con una misma operación digital.</h2>
+  <section class="hero-shell relative overflow-hidden pt-32 pb-20 sm:pt-36 lg:pt-40 lg:pb-28">
+    <div class="hero-grid absolute inset-0 opacity-70 dark:opacity-30"></div>
+    <div class="hero-orb hero-orb-a"></div>
+    <div class="relative mx-auto grid max-w-7xl items-center gap-14 px-5 lg:grid-cols-2 lg:px-8">
+      <div class="reveal text-left">
+        <span class="eyebrow">Tecnología con enfoque de negocio</span>
+        <h1 class="mt-5 max-w-4xl text-5xl font-extrabold leading-none tracking-tight sm:text-6xl lg:text-7xl">Experiencias digitales <span class="gradient-text">confiables, visibles y seguras.</span></h1>
+        <p class="mt-7 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">Acompañamos a las organizaciones con soluciones especializadas de DevSecOps, Observabilidad y Ciberseguridad para operar mejor y responder más rápido.</p>
+        <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+          <a class="btn-primary justify-center" href="contacto.html">Solicitar asesoría <span>→</span></a>
+          <a class="btn-secondary justify-center" href="#soluciones">Ver soluciones</a>
         </div>
-        <div class="col-lg-4 mt-3 mt-lg-0">
-          <p class="section-copy reveal">Modernizamos el portafolio sin perder la estructura principal que ya reconoce el negocio.</p>
+        <div class="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-3">
+          <div class="metric-card"><span>Trayectoria</span><strong>Desde 1992</strong></div>
+          <div class="metric-card"><span>Enfoque</span><strong>End-to-end</strong></div>
+          <div class="metric-card"><span>Especialidad</span><strong>TI empresarial</strong></div>
         </div>
       </div>
-
-      <div class="row g-4">
-        <div class="col-md-4">
-          <article class="card-modern solution-card p-4 reveal">
-            <div class="icon-box mb-4"><i class="bi bi-infinity"></i></div>
-            <h3 class="h4 fw-bold">DevSecOps</h3>
-            <p>Acelera desarrollo, pruebas y despliegues con automatización, integración continua y seguridad incorporada.</p>
-            <a href="devsecops.html" class="stretched-link fw-semibold">Conocer DevSecOps <i class="bi bi-arrow-right"></i></a>
-          </article>
-        </div>
-        <div class="col-md-4">
-          <article class="card-modern solution-card p-4 reveal">
-            <div class="icon-box mb-4"><i class="bi bi-activity"></i></div>
-            <h3 class="h4 fw-bold">Observabilidad</h3>
-            <p>Obtén visibilidad de extremo a extremo para detectar, entender y anticipar degradaciones de servicio.</p>
-            <a href="observabilidad.html" class="stretched-link fw-semibold">Conocer Observabilidad <i class="bi bi-arrow-right"></i></a>
-          </article>
-        </div>
-        <div class="col-md-4">
-          <article class="card-modern solution-card p-4 reveal">
-            <div class="icon-box mb-4"><i class="bi bi-shield-lock"></i></div>
-            <h3 class="h4 fw-bold">Ciberseguridad</h3>
-            <p>Protege identidades, accesos, aplicaciones y datos con una estrategia moderna basada en riesgo.</p>
-            <a href="ciberseguridad.html" class="stretched-link fw-semibold">Conocer Ciberseguridad <i class="bi bi-arrow-right"></i></a>
-          </article>
-        </div>
+      <div class="relative min-h-96 reveal lg:min-h-[520px]" aria-hidden="true">
+        <div class="orbit orbit-lg"></div><div class="orbit orbit-md"></div><div class="orbit orbit-sm"></div>
+        <div class="core-mark">TM</div>
+        <div class="float-pill pill-a">∞ <span>DevSecOps</span></div>
+        <div class="float-pill pill-b">◉ <span>Observabilidad</span></div>
+        <div class="float-pill pill-c">◇ <span>Ciberseguridad</span></div>
       </div>
     </div>
   </section>
 
-  <section class="section section-soft">
-    <div class="container">
-      <div class="band reveal">
-        <div class="row align-items-center g-4">
-          <div class="col-lg-8">
-            <div class="eyebrow text-info">Observability Experts</div>
-            <h2 class="display-5 fw-bold">De la señal al contexto. Del contexto a la acción.</h2>
-            <p class="lead mb-0">Integramos monitoreo, analítica y automatización para reducir tiempos de diagnóstico y mejorar la experiencia de usuario.</p>
-          </div>
-          <div class="col-lg-4 text-lg-end">
-            <a href="observabilidad.html" class="btn btn-light btn-lg rounded-pill px-4">Explorar observabilidad</a>
-          </div>
-        </div>
+  <section id="soluciones" class="py-24 sm:py-28">
+    <div class="mx-auto max-w-7xl px-5 lg:px-8">
+      <div class="max-w-4xl text-left reveal">
+        <span class="eyebrow">Soluciones</span>
+        <h2 class="section-title mt-4">Tres capacidades conectadas con una misma operación digital.</h2>
+        <p class="section-copy mt-5">Integramos herramientas, procesos y acompañamiento para que los equipos puedan entregar software, entender su operación y proteger el acceso a sus servicios.</p>
+      </div>
+      <div class="mt-12 grid gap-5 lg:grid-cols-3">
+        <a class="feature-card reveal" href="devsecops.html"><span class="feature-icon">∞</span><h3>DevSecOps</h3><p>Acelera desarrollo, pruebas y despliegues con automatización, integración continua y seguridad incorporada.</p><span class="feature-link">Conocer DevSecOps →</span></a>
+        <a class="feature-card reveal" href="observabilidad.html"><span class="feature-icon">◉</span><h3>Observabilidad</h3><p>Obtén visibilidad de extremo a extremo para detectar, entender y anticipar degradaciones de servicio.</p><span class="feature-link">Conocer Observabilidad →</span></a>
+        <a class="feature-card reveal" href="ciberseguridad.html"><span class="feature-icon">◇</span><h3>Ciberseguridad</h3><p>Protege identidades, accesos, aplicaciones y datos con una estrategia moderna basada en riesgo.</p><span class="feature-link">Conocer Ciberseguridad →</span></a>
       </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="row g-5 align-items-center">
-        <div class="col-lg-5">
-          <div class="eyebrow reveal">Por qué TecnoMedia</div>
-          <h2 class="display-5 section-title reveal">Tecnología con acompañamiento especializado.</h2>
-          <p class="section-copy mt-3 reveal">Desde 1992, TecnoMedia trabaja con clientes empresariales para diseñar soluciones de TI alineadas a necesidades reales de operación.</p>
-          <a href="nosotros.html" class="btn btn-outline-tm rounded-pill px-4 mt-2 reveal">Conocer la empresa</a>
-        </div>
-        <div class="col-lg-7">
-          <div class="row g-3">
-            <div class="col-sm-6"><div class="card-modern p-4 reveal"><div class="icon-box mb-3"><i class="bi bi-diagram-3"></i></div><h3 class="h5 fw-bold">Visión integral</h3><p class="mb-0">Diseño, integración, operación y mejora continua.</p></div></div>
-            <div class="col-sm-6"><div class="card-modern p-4 reveal"><div class="icon-box mb-3"><i class="bi bi-speedometer2"></i></div><h3 class="h5 fw-bold">Foco en resultados</h3><p class="mb-0">Menos fricción operativa y mayor velocidad de respuesta.</p></div></div>
-            <div class="col-sm-6"><div class="card-modern p-4 reveal"><div class="icon-box mb-3"><i class="bi bi-people"></i></div><h3 class="h5 fw-bold">Acompañamiento</h3><p class="mb-0">Consultoría especializada y trabajo cercano con los equipos.</p></div></div>
-            <div class="col-sm-6"><div class="card-modern p-4 reveal"><div class="icon-box mb-3"><i class="bi bi-shield-check"></i></div><h3 class="h5 fw-bold">Confianza</h3><p class="mb-0">Soluciones pensadas para entornos empresariales críticos.</p></div></div>
-          </div>
-        </div>
+  <section class="bg-slate-50 py-24 dark:bg-slate-900/50 sm:py-28">
+    <div class="mx-auto max-w-7xl px-5 lg:px-8">
+      <div class="spotlight reveal">
+        <div class="max-w-3xl text-left"><span class="eyebrow eyebrow-light">Observability Experts</span><h2 class="mt-4 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">De la señal al contexto. Del contexto a la acción.</h2><p class="mt-5 text-lg leading-8 text-slate-300">Integramos monitoreo, analítica y automatización para reducir tiempos de diagnóstico y mejorar la experiencia de usuario.</p></div>
+        <a class="btn-light" href="observabilidad.html">Explorar observabilidad</a>
       </div>
     </div>
   </section>
 
-  <section class="section section-soft">
-    <div class="container">
-      <div class="text-center mb-5">
-        <div class="eyebrow justify-content-center reveal">Alianzas</div>
-        <h2 class="display-5 section-title reveal">Tecnología líder, integrada por especialistas.</h2>
+  <section class="py-24 sm:py-28">
+    <div class="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-2 lg:px-8">
+      <div class="text-left reveal"><span class="eyebrow">Por qué TecnoMedia</span><h2 class="section-title mt-4">Tecnología con acompañamiento especializado.</h2><p class="section-copy mt-5">Desde 1992, TecnoMedia trabaja con clientes empresariales para diseñar soluciones de TI alineadas a necesidades reales de operación.</p><a class="btn-secondary mt-7" href="acerca-de.html">Conocer la empresa</a></div>
+      <div class="grid gap-4 sm:grid-cols-2">
+        <div class="mini-card reveal"><strong>Visión integral</strong><p>Diseño, integración, operación y mejora continua.</p></div>
+        <div class="mini-card reveal"><strong>Foco en resultados</strong><p>Menos fricción operativa y mayor velocidad de respuesta.</p></div>
+        <div class="mini-card reveal"><strong>Acompañamiento</strong><p>Consultoría especializada y trabajo cercano con los equipos.</p></div>
+        <div class="mini-card reveal"><strong>Confianza</strong><p>Soluciones pensadas para entornos empresariales críticos.</p></div>
       </div>
-      <div class="row row-cols-2 row-cols-md-4 g-3">
-        <div class="col"><a class="partner-logo reveal" href="https://www.appdynamics.com/" target="_blank" rel="noopener"><img src="https://tecnomedia.com.mx/img/alianza/AppDynamics_LOGO_STACKED_DEEPSPACE_.png" alt="AppDynamics"></a></div>
-        <div class="col"><div class="partner-logo reveal"><img src="https://tecnomedia.com.mx/img/alianza/Harnes_logo_horizontal.jpg" alt="Harness"></div></div>
-        <div class="col"><a class="partner-logo reveal" href="https://www.veracode.com/" target="_blank" rel="noopener"><img src="https://tecnomedia.com.mx/img/alianza/veracode.jpg" alt="Veracode"></a></div>
-        <div class="col"><a class="partner-logo reveal" href="https://www.netscout.com" target="_blank" rel="noopener"><img src="https://tecnomedia.com.mx/img/alianza/NetScout_Logo500x500.jpg" alt="NETSCOUT"></a></div>
-        <div class="col"><a class="partner-logo reveal" href="https://cloud.google.com/apigee/" target="_blank" rel="noopener"><img src="https://tecnomedia.com.mx/img/alianza/apigee.png" alt="Google Apigee"></a></div>
-        <div class="col"><a class="partner-logo reveal" href="https://www.datadoghq.com/" target="_blank" rel="noopener"><img src="https://tecnomedia.com.mx/img/alianza/Datadog.jpg" alt="Datadog"></a></div>
-        <div class="col"><a class="partner-logo reveal" href="https://www.cyberark.com/" target="_blank" rel="noopener"><img src="https://tecnomedia.com.mx/img/alianza/CyberArk.jpeg" alt="CyberArk"></a></div>
-        <div class="col"><div class="partner-logo reveal"><span class="partner-fallback">Solace</span></div></div>
-      </div>
-      <div class="text-center mt-4"><a href="alianzas.html" class="btn btn-outline-tm rounded-pill px-4 reveal">Ver alianzas</a></div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="band reveal">
-        <div class="row align-items-center g-4">
-          <div class="col-lg-8">
-            <h2 class="display-6 fw-bold mb-2">¿Quieres revisar tu operación digital?</h2>
-            <p class="mb-0">Cuéntanos el reto y te ayudamos a ubicar la solución adecuada.</p>
-          </div>
-          <div class="col-lg-4 text-lg-end">
-            <a href="contacto.html" class="btn btn-light btn-lg rounded-pill px-4">Contactar a TecnoMedia</a>
-          </div>
-        </div>
-      </div>
+    <section class="bg-slate-50 py-16 dark:bg-slate-900/50 sm:py-20">
+  <div class="mx-auto max-w-7xl px-5 lg:px-8">
+    <div class="text-left reveal">
+      <span class="eyebrow">Alianzas</span>
+      <h2 class="section-title mt-4">Tecnologí­a líder, integrada por especialistas.</h2>
+      <p class="section-copy mt-5">Un ecosistema de fabricantes y plataformas para construir soluciones completas.</p>
     </div>
-  </section>
+
+    <div class="partners-grid mt-10 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+        <a class="partner-card reveal" href="https://www.appdynamics.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir sitio de AppDynamics">
+          <img src="assets/logos/partners/appdynamics.png" alt="AppDynamics" loading="lazy">
+          <span>AppDynamics</span>
+        </a>
+        <a class="partner-card reveal" href="https://www.harness.io/" target="_blank" rel="noopener noreferrer" aria-label="Abrir sitio de Harness">
+          <img src="assets/logos/partners/harness.jpg" alt="Harness" loading="lazy">
+          <span>Harness</span>
+        </a>
+        <a class="partner-card reveal" href="https://www.veracode.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir sitio de Veracode">
+          <img src="assets/logos/partners/veracode.jpg" alt="Veracode" loading="lazy">
+          <span>Veracode</span>
+        </a>
+        <a class="partner-card reveal" href="https://www.netscout.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir sitio de NETSCOUT">
+          <img src="assets/logos/partners/netscout.jpg" alt="NETSCOUT" loading="lazy">
+          <span>NETSCOUT</span>
+        </a>
+        <a class="partner-card reveal" href="https://cloud.google.com/apigee" target="_blank" rel="noopener noreferrer" aria-label="Abrir sitio de Google Apigee">
+          <img src="assets/logos/partners/apigee.png" alt="Google Apigee" loading="lazy">
+          <span>Google Apigee</span>
+        </a>
+        <a class="partner-card reveal" href="https://www.datadoghq.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir sitio de Datadog">
+          <img src="assets/logos/partners/datadog.jpg" alt="Datadog" loading="lazy">
+          <span>Datadog</span>
+        </a>
+        <a class="partner-card reveal" href="https://www.cyberark.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir sitio de CyberArk">
+          <img src="assets/logos/partners/cyberark.jpeg" alt="CyberArk" loading="lazy">
+          <span>CyberArk</span>
+        </a>
+        <a class="partner-card reveal" href="https://solace.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir sitio de Solace">
+          <img src="assets/logos/partners/solace.png" alt="Solace" loading="lazy">
+          <span>Solace</span>
+        </a>
+        <a class="partner-card reveal" href="https://www.splunk.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir sitio de Splunk">
+          <img src="assets/logos/partners/splunk.svg" alt="Splunk" loading="lazy">
+          <span>Splunk</span>
+        </a>
+        <a class="partner-card reveal" href="https://grafana.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir sitio de Grafana">
+          <img src="assets/logos/partners/grafana.svg" alt="Grafana" loading="lazy">
+          <span>Grafana</span>
+        </a>
+        <a class="partner-card reveal" href="https://www.aikido.dev/" target="_blank" rel="noopener noreferrer" aria-label="Abrir sitio de Aikido">
+          <img src="assets/logos/partners/aikido.svg" alt="Aikido" loading="lazy">
+          <span>Aikido</span>
+        </a>
+    </div>
+
+    <a class="btn-secondary mt-8" href="alianzas.html">Ver todas las alianzas</a>
+  </div>
+</section>
+
+  <section class="py-24 sm:py-28"><div class="mx-auto max-w-7xl px-5 lg:px-8"><div class="spotlight reveal"><div class="max-w-3xl text-left"><h2 class="text-4xl font-extrabold tracking-tight text-white">¿Quieres revisar tu operación digital?</h2><p class="mt-4 text-lg text-slate-300">Cuéntanos el reto y te ayudamos a ubicar la solución adecuada.</p></div><a class="btn-light" href="contacto.html">Contactar a TecnoMedia</a></div></div></section>
 </main>
 
-<footer class="pt-5 pb-4 mt-auto">
-  <div class="container">
-    <div class="row g-4 align-items-start">
-      <div class="col-lg-5">
-        <img class="footer-logo mb-3" src="https://tecnomedia.com.mx/img/logo/logo.jpg" alt="TecnoMedia">
-        <p class="mb-0">Soluciones de tecnología para operar, observar y proteger experiencias digitales.</p>
+<footer class="tm-footer">
+  <div class="tm-footer-inner">
+    <div class="tm-footer-grid">
+
+      <div class="tm-footer-brand">
+        <a href="index.html" class="tm-footer-logo-link" aria-label="TecnoMedia - Inicio">
+          <span class="tm-footer-logo-stage">
+            <img src="assets/logos/tecnomedia-dark.png" alt="TecnoMedia" class="tm-footer-logo">
+          </span>
+        </a>
+        <p>Soluciones de tecnologí­a para operar, observar y proteger experiencias digitales.</p>
       </div>
-      <div class="col-6 col-lg-2">
-        <h6 class="text-white">Empresa</h6>
-        <div class="d-grid gap-2 small">
-          <a href="nosotros.html">Nosotros</a>
+
+      <div>
+        <h3>Empresa</h3>
+        <nav class="tm-footer-links" aria-label="Empresa">
+          <a href="acerca-de.html">Acerca de</a>
           <a href="alianzas.html">Alianzas</a>
           <a href="contacto.html">Contacto</a>
-        </div>
+        </nav>
       </div>
-      <div class="col-6 col-lg-2">
-        <h6 class="text-white">Soluciones</h6>
-        <div class="d-grid gap-2 small">
+
+      <div>
+        <h3>Soluciones</h3>
+        <nav class="tm-footer-links" aria-label="Soluciones">
           <a href="devsecops.html">DevSecOps</a>
           <a href="observabilidad.html">Observabilidad</a>
           <a href="ciberseguridad.html">Ciberseguridad</a>
+        </nav>
+      </div>
+
+      <div>
+        <h3>Contacto</h3>
+        <div class="tm-footer-links">
+          <a href="tel:+525552546809">+52 55 5254 6809</a>
+          <a href="mailto:contacto@tecnomedia.com.mx">contacto@tecnomedia.com.mx</a>
+          <span>Lafayette 123, Nueva Anzures, Miguel Hidalgo, CDMX.</span>
         </div>
       </div>
-      <div class="col-lg-3">
-        <h6 class="text-white">Contacto</h6>
-        <p class="small mb-1">+52 55 5254 6809</p>
-        <p class="small mb-1"><a href="mailto:contacto@tecnomedia.com.mx">contacto@tecnomedia.com.mx</a></p>
-        <p class="small mb-0">Lafayette 123, Nueva Anzures, Miguel Hidalgo, CDMX.</p>
-      </div>
+
     </div>
-    <hr class="border-secondary my-4">
-    <div class="d-flex flex-column flex-md-row gap-2 justify-content-between small">
+
+    <div class="tm-footer-bottom">
       <span>© <span data-year></span> TecnoMedia.</span>
       <a href="aviso-privacidad.html">Aviso de privacidad</a>
     </div>
   </div>
 </footer>
 
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
-  <div id="formToast" class="toast border-0 shadow" role="status" aria-live="polite" aria-atomic="true">
-    <div class="toast-body">
-      <i class="bi bi-send-check me-2"></i>Enviando tu solicitud…
-    </div>
-  </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/main.js"></script>
-
+<script src="assets/js/app.js" defer></script>
 </body></html>
+
+
+
+
+
+
+
+
