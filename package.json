@@ -1,0 +1,12 @@
+{
+  "name": "tecnomedia-tailwind-v2",
+  "private": true,
+  "version": "2.0.0",
+  "scripts": {
+    "build:css": "node scripts/build-tailwind.js",
+    "serve": "npx http-server . -p 5500 -c-1"
+  },
+  "devDependencies": {
+    "tailwindcss": "4.1.10"
+  }
+}

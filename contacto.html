@@ -1,178 +1,103 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Contacta a TecnoMedia para recibir asesoría.">
-  <meta name="theme-color" content="#07111f">
+  <meta name="theme-color" content="#020617">
   <title>Contacto | TecnoMedia</title>
-
+  <script>
+  (() => {
+    const saved = localStorage.getItem('tm-theme');
+    const dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.classList.toggle('dark', dark);
+  })();
+</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="assets/css/styles.css" rel="stylesheet">
-</head>
-<body data-page="contacto">
-
-<nav class="navbar navbar-expand-lg fixed-top bg-white" aria-label="Navegación principal">
-  <div class="container">
-    <a class="navbar-brand" href="index.html" aria-label="TecnoMedia - Inicio">
-      <img src="https://tecnomedia.com.mx/img/logo/logo.jpg" alt="TecnoMedia">
+  <link rel="stylesheet" href="assets/css/tailwind.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head><body data-page="contact" class="bg-white font-sans text-slate-950 antialiased transition-colors dark:bg-slate-950 dark:text-white">
+<nav class="fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl transition dark:border-slate-800 dark:bg-slate-950/90" data-navbar>
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 lg:px-8">
+    <a href="index.html" class="flex min-h-12 items-center" aria-label="TecnoMedia - Inicio">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="assets/logos/tecnomedia-dark.png">
+        <img src="assets/logos/tecnomedia-light.png" alt="TecnoMedia" class="h-11 w-auto max-w-56 object-contain dark:hidden" data-brand-light onerror="this.classList.add('hidden');this.parentElement.nextElementSibling.classList.remove('hidden')">
+      </picture>
+      <span class="hidden text-xl font-extrabold tracking-tight text-slate-950 dark:text-white">TecnoMedia<span class="text-sky-600">.</span></span>
+      <img src="assets/logos/tecnomedia-dark.png" alt="TecnoMedia" class="hidden h-11 w-auto max-w-56 object-contain dark:block" data-brand-dark onerror="this.classList.add('hidden')">
     </a>
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir navegación">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse" id="mainNav">
-      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
-        <li class="nav-item"><a class="nav-link px-lg-3" data-nav="home" href="index.html">Inicio</a></li>
-        <li class="nav-item"><a class="nav-link px-lg-3" data-nav="nosotros" href="nosotros.html">Nosotros</a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle px-lg-3" data-nav="soluciones" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Soluciones</a>
-          <ul class="dropdown-menu border-0 shadow rounded-4 p-2">
-            <li><a class="dropdown-item rounded-3 py-2" href="devsecops.html"><i class="bi bi-infinity me-2"></i>DevSecOps</a></li>
-            <li><a class="dropdown-item rounded-3 py-2" href="observabilidad.html"><i class="bi bi-activity me-2"></i>Observabilidad</a></li>
-            <li><a class="dropdown-item rounded-3 py-2" href="ciberseguridad.html"><i class="bi bi-shield-lock me-2"></i>Ciberseguridad</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link px-lg-3" data-nav="alianzas" href="alianzas.html">Alianzas</a></li>
-        <li class="nav-item"><a class="nav-link px-lg-3" data-nav="contacto" href="contacto.html">Contacto</a></li>
-      </ul>
-      <a class="btn btn-tm rounded-pill px-4 ms-lg-3 mt-3 mt-lg-0" href="contacto.html">Habla con un experto</a>
+    <div class="hidden items-center gap-1 lg:flex">
+      <a class="nav-link" data-nav="home" href="index.html">Inicio</a>
+      <a class="nav-link" data-nav="about" href="acerca-de.html">Acerca de</a>
+      <div class="group relative">
+        <button class="nav-link inline-flex items-center gap-1" type="button">Soluciones <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.51a.75.75 0 01-1.08 0l-4.25-4.51a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg></button>
+        <div class="invisible absolute left-0 top-full w-64 translate-y-2 rounded-2xl border border-slate-200 bg-white p-2 opacity-0 shadow-2xl transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 dark:border-slate-800 dark:bg-slate-900">
+          <a class="dropdown-link" href="devsecops.html"><span class="dropdown-icon">∞</span><span><strong>DevSecOps</strong><small>Entrega y automatización</small></span></a>
+          <a class="dropdown-link" href="observabilidad.html"><span class="dropdown-icon">◉</span><span><strong>Observabilidad</strong><small>Visibilidad end-to-end</small></span></a>
+          <a class="dropdown-link" href="ciberseguridad.html"><span class="dropdown-icon">◇</span><span><strong>Ciberseguridad</strong><small>Identidad y protección</small></span></a>
+        </div>
+      </div>
+      <a class="nav-link" data-nav="partners" href="alianzas.html">Alianzas</a>
+      <a class="nav-link" data-nav="contact" href="contacto.html">Contacto</a>
+      <button class="theme-button ml-2" type="button" data-theme-toggle aria-label="Cambiar tema"><span data-theme-icon>☾</span></button>
+      <a href="contacto.html" class="btn-primary ml-2">Habla con un experto</a>
+    </div>
+
+    <div class="flex items-center gap-2 lg:hidden">
+      <button class="theme-button" type="button" data-theme-toggle aria-label="Cambiar tema"><span data-theme-icon>☾</span></button>
+      <button class="mobile-button" type="button" data-menu-toggle aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="hidden border-t border-slate-200 bg-white px-5 py-4 dark:border-slate-800 dark:bg-slate-950 lg:hidden" data-mobile-menu>
+    <div class="mx-auto grid max-w-7xl gap-1">
+      <a class="mobile-link" href="index.html">Inicio</a>
+      <a class="mobile-link" href="acerca-de.html">Acerca de</a>
+      <div class="my-2 border-t border-slate-200 dark:border-slate-800"></div>
+      <p class="px-3 py-2 text-xs font-bold uppercase tracking-widest text-slate-400">Soluciones</p>
+      <a class="mobile-link" href="devsecops.html">DevSecOps</a>
+      <a class="mobile-link" href="observabilidad.html">Observabilidad</a>
+      <a class="mobile-link" href="ciberseguridad.html">Ciberseguridad</a>
+      <div class="my-2 border-t border-slate-200 dark:border-slate-800"></div>
+      <a class="mobile-link" href="alianzas.html">Alianzas</a>
+      <a class="mobile-link" href="contacto.html">Contacto</a>
+      <a class="btn-primary mt-3 text-center" href="contacto.html">Habla con un experto</a>
     </div>
   </div>
 </nav>
-
-<header class="page-hero">
-  <div class="container">
-    <div class="eyebrow reveal">Contacto</div>
-    <h1 class="display-3 reveal">Cuéntanos qué quieres mejorar.</h1>
-    <p class="lead text-secondary mt-3 col-lg-8 reveal">Déjanos tus datos y un breve contexto. El formulario puede funcionar sin backend propio mediante FormSubmit.</p>
-  </div>
-</header>
-<main>
-  <section class="section">
-    <div class="container">
-      <div class="row g-5">
-        <div class="col-lg-5">
-          <div class="contact-info reveal"><div class="icon-box"><i class="bi bi-geo-alt"></i></div><div><h2 class="h6 fw-bold mb-1">Dirección</h2><p class="text-secondary mb-0">Lafayette Núm. 123, Col. Nueva Anzures, Miguel Hidalgo, C.P. 11590, Ciudad de México.</p></div></div>
-          <div class="contact-info reveal"><div class="icon-box"><i class="bi bi-telephone"></i></div><div><h2 class="h6 fw-bold mb-1">Teléfonos</h2><p class="text-secondary mb-0">+52 55 5254 6809<br>5545-8719</p></div></div>
-          <div class="contact-info reveal"><div class="icon-box"><i class="bi bi-envelope"></i></div><div><h2 class="h6 fw-bold mb-1">Correo</h2><p class="text-secondary mb-0"><a href="mailto:contacto@tecnomedia.com.mx">contacto@tecnomedia.com.mx</a></p></div></div>
+<main><section class="page-hero"><div class="mx-auto max-w-7xl px-5 lg:px-8"><span class="eyebrow reveal">Contacto</span><h1 class="section-title mt-4 max-w-5xl reveal">Cuéntanos qué quieres mejorar.</h1><p class="section-copy mt-5 max-w-3xl reveal">Déjanos tus datos y un breve contexto. El formulario se envía mediante FormSubmit, por lo que no requiere un backend propio.</p></div></section><section class="py-24 sm:py-28"><div class="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-5 lg:px-8"><div class="space-y-7 text-left lg:col-span-2"><div class="contact-item reveal"><strong>Dirección</strong><p>Lafayette Núm. 123, Col. Nueva Anzures, Miguel Hidalgo, C.P. 11590, Ciudad de México.</p></div><div class="contact-item reveal"><strong>Teléfonos</strong><p>+52 55 5254 6809<br>5545-8719</p></div><div class="contact-item reveal"><strong>Correo</strong><p><a href="mailto:contacto@tecnomedia.com.mx">contacto@tecnomedia.com.mx</a></p></div></div><div class="form-card reveal lg:col-span-3"><h2 class="text-3xl font-extrabold tracking-tight">Solicitar información</h2><form action="https://formsubmit.co/contacto@tecnomedia.com.mx" method="POST" class="mt-8 grid gap-5" data-contact-form><input type="hidden" name="_subject" value="Nuevo contacto desde tecnomedia.com.mx"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="true"><input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off"><div class="grid gap-5 sm:grid-cols-2"><label class="form-field">Nombre<input name="Nombre" autocomplete="name" required></label><label class="form-field">Empresa<input name="Empresa" autocomplete="organization"></label><label class="form-field">Correo<input type="email" name="Correo" autocomplete="email" required></label><label class="form-field">Teléfono<input type="tel" name="Telefono" autocomplete="tel"></label></div><label class="form-field">Área de interés<select name="Area de interes" required><option value="" selected disabled>Selecciona una opción</option><option>DevSecOps</option><option>Observabilidad</option><option>Ciberseguridad</option><option>Otro</option></select></label><label class="form-field">Comentarios<textarea name="Comentarios" rows="5" required></textarea></label><label class="flex items-start gap-3 text-sm leading-6 text-slate-600 dark:text-slate-300"><input type="checkbox" required class="mt-1 h-4 w-4 accent-sky-600"><span>Acepto que mis datos se utilicen para atender esta solicitud y he consultado el <a class="font-bold text-sky-700 hover:underline dark:text-sky-400" href="aviso-privacidad.html">aviso de privacidad</a>.</span></label><button class="btn-primary justify-center sm:justify-self-end" type="submit">Enviar solicitud <span>→</span></button></form></div></div></section></main>
+<footer class="border-t border-slate-200 bg-slate-50 py-14 text-slate-600 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-400">
+  <div class="mx-auto max-w-7xl px-5 lg:px-8">
+    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+      <div class="lg:col-span-2">
+        <div class="mb-5 text-2xl font-extrabold tracking-tight text-slate-950 dark:text-white">TecnoMedia<span class="text-sky-600">.</span></div>
+        <p class="max-w-xl leading-7">Soluciones de tecnología para operar, observar y proteger experiencias digitales con una visión integral de negocio.</p>
+      </div>
+      <div>
+        <h2 class="mb-4 text-sm font-extrabold uppercase tracking-widest text-slate-950 dark:text-white">Navegación</h2>
+        <div class="grid gap-3 text-sm">
+          <a class="footer-link" href="acerca-de.html">Acerca de</a>
+          <a class="footer-link" href="alianzas.html">Alianzas</a>
+          <a class="footer-link" href="contacto.html">Contacto</a>
+          <a class="footer-link" href="aviso-privacidad.html">Aviso de privacidad</a>
         </div>
-
-        <div class="col-lg-7">
-          <div class="contact-card p-4 p-md-5 reveal">
-            <h2 class="h3 fw-bold mb-4">Solicitar información</h2>
-
-            <form action="https://formsubmit.co/contacto@tecnomedia.com.mx" method="POST" class="needs-validation" novalidate data-contact-form>
-              <input type="hidden" name="_subject" value="Nuevo contacto desde tecnomedia.com.mx">
-              <input type="hidden" name="_template" value="table">
-              <input type="hidden" name="_captcha" value="true">
-              <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-
-              <div class="row g-3">
-                <div class="col-md-6">
-                  <label class="form-label fw-semibold" for="nombre">Nombre</label>
-                  <input class="form-control" id="nombre" name="Nombre" autocomplete="name" required>
-                  <div class="invalid-feedback">Escribe tu nombre.</div>
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label fw-semibold" for="empresa">Empresa</label>
-                  <input class="form-control" id="empresa" name="Empresa" autocomplete="organization">
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label fw-semibold" for="correo">Correo</label>
-                  <input class="form-control" id="correo" name="Correo" type="email" autocomplete="email" required>
-                  <div class="invalid-feedback">Escribe un correo válido.</div>
-                </div>
-                <div class="col-md-6">
-                  <label class="form-label fw-semibold" for="telefono">Teléfono</label>
-                  <input class="form-control" id="telefono" name="Telefono" type="tel" autocomplete="tel">
-                </div>
-                <div class="col-12">
-                  <label class="form-label fw-semibold" for="interes">Área de interés</label>
-                  <select class="form-select" id="interes" name="Area de interes" required>
-                    <option value="" selected disabled>Selecciona una opción</option>
-                    <option>DevSecOps</option>
-                    <option>Observabilidad</option>
-                    <option>Ciberseguridad</option>
-                    <option>Otro</option>
-                  </select>
-                  <div class="invalid-feedback">Selecciona un área.</div>
-                </div>
-                <div class="col-12">
-                  <label class="form-label fw-semibold" for="comentarios">Comentarios</label>
-                  <textarea class="form-control" id="comentarios" name="Comentarios" rows="5" required></textarea>
-                  <div class="invalid-feedback">Cuéntanos brevemente qué necesitas.</div>
-                </div>
-                <div class="col-12">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="privacidad" required>
-                    <label class="form-check-label small text-secondary" for="privacidad">Acepto que mis datos se utilicen para atender esta solicitud y he consultado el <a href="aviso-privacidad.html" target="_blank" rel="noopener">aviso de privacidad</a>.</label>
-                    <div class="invalid-feedback">Debes aceptar el aviso de privacidad.</div>
-                  </div>
-                </div>
-                <div class="col-12 d-grid d-md-flex justify-content-md-end">
-                  <button type="submit" class="btn btn-tm btn-lg rounded-pill px-5">Enviar solicitud <i class="bi bi-send ms-2"></i></button>
-                </div>
-              </div>
-            </form>
-          </div>
+      </div>
+      <div>
+        <h2 class="mb-4 text-sm font-extrabold uppercase tracking-widest text-slate-950 dark:text-white">Contacto</h2>
+        <div class="grid gap-3 text-sm">
+          <span>+52 55 5254 6809</span>
+          <a class="footer-link" href="mailto:contacto@tecnomedia.com.mx">contacto@tecnomedia.com.mx</a>
+          <span>Lafayette 123, Nueva Anzures, Miguel Hidalgo, CDMX.</span>
         </div>
       </div>
     </div>
-  </section>
-</main>
-
-<footer class="pt-5 pb-4 mt-auto">
-  <div class="container">
-    <div class="row g-4 align-items-start">
-      <div class="col-lg-5">
-        <img class="footer-logo mb-3" src="https://tecnomedia.com.mx/img/logo/logo.jpg" alt="TecnoMedia">
-        <p class="mb-0">Soluciones de tecnología para operar, observar y proteger experiencias digitales.</p>
-      </div>
-      <div class="col-6 col-lg-2">
-        <h6 class="text-white">Empresa</h6>
-        <div class="d-grid gap-2 small">
-          <a href="nosotros.html">Nosotros</a>
-          <a href="alianzas.html">Alianzas</a>
-          <a href="contacto.html">Contacto</a>
-        </div>
-      </div>
-      <div class="col-6 col-lg-2">
-        <h6 class="text-white">Soluciones</h6>
-        <div class="d-grid gap-2 small">
-          <a href="devsecops.html">DevSecOps</a>
-          <a href="observabilidad.html">Observabilidad</a>
-          <a href="ciberseguridad.html">Ciberseguridad</a>
-        </div>
-      </div>
-      <div class="col-lg-3">
-        <h6 class="text-white">Contacto</h6>
-        <p class="small mb-1">+52 55 5254 6809</p>
-        <p class="small mb-1"><a href="mailto:contacto@tecnomedia.com.mx">contacto@tecnomedia.com.mx</a></p>
-        <p class="small mb-0">Lafayette 123, Nueva Anzures, Miguel Hidalgo, CDMX.</p>
-      </div>
-    </div>
-    <hr class="border-secondary my-4">
-    <div class="d-flex flex-column flex-md-row gap-2 justify-content-between small">
-      <span>© <span data-year></span> TecnoMedia.</span>
-      <a href="https://tecnomedia.com.mx/Tecnomedia/AvisoPrivacidad">Aviso de privacidad</a>
+    <div class="mt-12 flex flex-col gap-3 border-t border-slate-200 pt-6 text-sm dark:border-slate-800 md:flex-row md:items-center md:justify-between">
+      <span>© <span data-year></span> TecnoMedia. Todos los derechos reservados.</span>
+      <span>DevSecOps · Observabilidad · Ciberseguridad</span>
     </div>
   </div>
 </footer>
-
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
-  <div id="formToast" class="toast border-0 shadow" role="status" aria-live="polite" aria-atomic="true">
-    <div class="toast-body">
-      <i class="bi bi-send-check me-2"></i>Enviando tu solicitud…
-    </div>
-  </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/main.js"></script>
-
-</body></html>
+<script src="assets/js/app.js" defer></script></body></html>

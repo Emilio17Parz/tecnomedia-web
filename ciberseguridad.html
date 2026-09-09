@@ -1,142 +1,103 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Protege accesos, identidades, aplicaciones y datos con controles alineados al riesgo y a la operación.">
-  <meta name="theme-color" content="#07111f">
+  <meta name="theme-color" content="#020617">
   <title>Seguridad para entornos digitales modernos | TecnoMedia</title>
-
+  <script>
+  (() => {
+    const saved = localStorage.getItem('tm-theme');
+    const dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.classList.toggle('dark', dark);
+  })();
+</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-  <link href="assets/css/styles.css" rel="stylesheet">
-</head>
-<body data-page="soluciones">
-
-<nav class="navbar navbar-expand-lg fixed-top bg-white" aria-label="Navegación principal">
-  <div class="container">
-    <a class="navbar-brand" href="index.html" aria-label="TecnoMedia - Inicio">
-      <img src="https://tecnomedia.com.mx/img/logo/logo.jpg" alt="TecnoMedia">
+  <link rel="stylesheet" href="assets/css/tailwind.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head><body data-page="solutions" class="bg-white font-sans text-slate-950 antialiased transition-colors dark:bg-slate-950 dark:text-white">
+<nav class="fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl transition dark:border-slate-800 dark:bg-slate-950/90" data-navbar>
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 lg:px-8">
+    <a href="index.html" class="flex min-h-12 items-center" aria-label="TecnoMedia - Inicio">
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="assets/logos/tecnomedia-dark.png">
+        <img src="assets/logos/tecnomedia-light.png" alt="TecnoMedia" class="h-11 w-auto max-w-56 object-contain dark:hidden" data-brand-light onerror="this.classList.add('hidden');this.parentElement.nextElementSibling.classList.remove('hidden')">
+      </picture>
+      <span class="hidden text-xl font-extrabold tracking-tight text-slate-950 dark:text-white">TecnoMedia<span class="text-sky-600">.</span></span>
+      <img src="assets/logos/tecnomedia-dark.png" alt="TecnoMedia" class="hidden h-11 w-auto max-w-56 object-contain dark:block" data-brand-dark onerror="this.classList.add('hidden')">
     </a>
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir navegación">
-      <span class="navbar-toggler-icon"></span>
-    </button>
 
-    <div class="collapse navbar-collapse" id="mainNav">
-      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
-        <li class="nav-item"><a class="nav-link px-lg-3" data-nav="home" href="index.html">Inicio</a></li>
-        <li class="nav-item"><a class="nav-link px-lg-3" data-nav="nosotros" href="nosotros.html">Nosotros</a></li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle px-lg-3" data-nav="soluciones" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Soluciones</a>
-          <ul class="dropdown-menu border-0 shadow rounded-4 p-2">
-            <li><a class="dropdown-item rounded-3 py-2" href="devsecops.html"><i class="bi bi-infinity me-2"></i>DevSecOps</a></li>
-            <li><a class="dropdown-item rounded-3 py-2" href="observabilidad.html"><i class="bi bi-activity me-2"></i>Observabilidad</a></li>
-            <li><a class="dropdown-item rounded-3 py-2" href="ciberseguridad.html"><i class="bi bi-shield-lock me-2"></i>Ciberseguridad</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a class="nav-link px-lg-3" data-nav="alianzas" href="alianzas.html">Alianzas</a></li>
-        <li class="nav-item"><a class="nav-link px-lg-3" data-nav="contacto" href="contacto.html">Contacto</a></li>
-      </ul>
-      <a class="btn btn-tm rounded-pill px-4 ms-lg-3 mt-3 mt-lg-0" href="contacto.html">Habla con un experto</a>
+    <div class="hidden items-center gap-1 lg:flex">
+      <a class="nav-link" data-nav="home" href="index.html">Inicio</a>
+      <a class="nav-link" data-nav="about" href="acerca-de.html">Acerca de</a>
+      <div class="group relative">
+        <button class="nav-link inline-flex items-center gap-1" type="button">Soluciones <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.51a.75.75 0 01-1.08 0l-4.25-4.51a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg></button>
+        <div class="invisible absolute left-0 top-full w-64 translate-y-2 rounded-2xl border border-slate-200 bg-white p-2 opacity-0 shadow-2xl transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 dark:border-slate-800 dark:bg-slate-900">
+          <a class="dropdown-link" href="devsecops.html"><span class="dropdown-icon">∞</span><span><strong>DevSecOps</strong><small>Entrega y automatización</small></span></a>
+          <a class="dropdown-link" href="observabilidad.html"><span class="dropdown-icon">◉</span><span><strong>Observabilidad</strong><small>Visibilidad end-to-end</small></span></a>
+          <a class="dropdown-link" href="ciberseguridad.html"><span class="dropdown-icon">◇</span><span><strong>Ciberseguridad</strong><small>Identidad y protección</small></span></a>
+        </div>
+      </div>
+      <a class="nav-link" data-nav="partners" href="alianzas.html">Alianzas</a>
+      <a class="nav-link" data-nav="contact" href="contacto.html">Contacto</a>
+      <button class="theme-button ml-2" type="button" data-theme-toggle aria-label="Cambiar tema"><span data-theme-icon>☾</span></button>
+      <a href="contacto.html" class="btn-primary ml-2">Habla con un experto</a>
+    </div>
+
+    <div class="flex items-center gap-2 lg:hidden">
+      <button class="theme-button" type="button" data-theme-toggle aria-label="Cambiar tema"><span data-theme-icon>☾</span></button>
+      <button class="mobile-button" type="button" data-menu-toggle aria-label="Abrir menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="hidden border-t border-slate-200 bg-white px-5 py-4 dark:border-slate-800 dark:bg-slate-950 lg:hidden" data-mobile-menu>
+    <div class="mx-auto grid max-w-7xl gap-1">
+      <a class="mobile-link" href="index.html">Inicio</a>
+      <a class="mobile-link" href="acerca-de.html">Acerca de</a>
+      <div class="my-2 border-t border-slate-200 dark:border-slate-800"></div>
+      <p class="px-3 py-2 text-xs font-bold uppercase tracking-widest text-slate-400">Soluciones</p>
+      <a class="mobile-link" href="devsecops.html">DevSecOps</a>
+      <a class="mobile-link" href="observabilidad.html">Observabilidad</a>
+      <a class="mobile-link" href="ciberseguridad.html">Ciberseguridad</a>
+      <div class="my-2 border-t border-slate-200 dark:border-slate-800"></div>
+      <a class="mobile-link" href="alianzas.html">Alianzas</a>
+      <a class="mobile-link" href="contacto.html">Contacto</a>
+      <a class="btn-primary mt-3 text-center" href="contacto.html">Habla con un experto</a>
     </div>
   </div>
 </nav>
-
-<header class="page-hero">
-  <div class="container">
-    <div class="row g-4 align-items-center">
-      <div class="col-lg-7">
-        <div class="eyebrow reveal">Ciberseguridad</div>
-        <h1 class="display-3 reveal">Seguridad para entornos digitales modernos</h1>
-        <p class="lead text-secondary mt-3 reveal">Protege accesos, identidades, aplicaciones y datos con controles alineados al riesgo y a la operación.</p>
-        <a href="contacto.html" class="btn btn-tm btn-lg rounded-pill px-4 mt-2 reveal">Solicitar asesoría</a>
+<main><section class="page-hero"><div class="mx-auto grid max-w-7xl items-center gap-10 px-5 lg:grid-cols-2 lg:px-8"><div class="text-left reveal"><span class="eyebrow">Ciberseguridad</span><h1 class="mt-4 text-5xl font-extrabold tracking-tight sm:text-6xl">Seguridad para entornos digitales modernos</h1><p class="section-copy mt-5 text-lg">Protege accesos, identidades, aplicaciones y datos con controles alineados al riesgo y a la operación.</p><a href="contacto.html" class="btn-primary mt-7">Solicitar asesoría</a></div><div class="relative min-h-80 reveal" aria-hidden="true"><div class="orbit orbit-md"></div><div class="orbit orbit-sm"></div><div class="core-mark">◇</div></div></div></section><section class="py-24 sm:py-28"><div class="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-2 lg:px-8"><div class="text-left reveal"><span class="eyebrow">Capacidades</span><h2 class="section-title mt-4">Reduce superficie de ataque sin frenar al usuario.</h2><ul class="check-list mt-8"><li>Administración y protección de cuentas privilegiadas.</li><li>Acceso seguro a aplicaciones privadas sin depender de VPN tradicional.</li><li>Acceso seguro a Internet con controles de política y reducción de superficie de ataque.</li><li>Gestión de vulnerabilidades, APIs, identidades y controles de acceso.</li></ul></div><div class="dark-panel reveal"><span class="feature-icon">◇</span><h3>Enfoque TecnoMedia</h3><p>Combinamos controles de identidad, acceso y protección de aplicaciones con una visión Zero Trust y de operación empresarial.</p><a class="btn-light mt-6" href="contacto.html">Hablar con un experto</a></div></div></section></main>
+<footer class="border-t border-slate-200 bg-slate-50 py-14 text-slate-600 dark:border-slate-800 dark:bg-slate-950 dark:text-slate-400">
+  <div class="mx-auto max-w-7xl px-5 lg:px-8">
+    <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+      <div class="lg:col-span-2">
+        <div class="mb-5 text-2xl font-extrabold tracking-tight text-slate-950 dark:text-white">TecnoMedia<span class="text-sky-600">.</span></div>
+        <p class="max-w-xl leading-7">Soluciones de tecnología para operar, observar y proteger experiencias digitales con una visión integral de negocio.</p>
       </div>
-      <div class="col-lg-5">
-        <div class="hero-visual reveal" style="min-height:320px">
-          <div class="orbit orbit-2"></div><div class="orbit orbit-3"></div>
-          <div class="hero-core"><i class="bi bi-shield-lock"></i></div>
+      <div>
+        <h2 class="mb-4 text-sm font-extrabold uppercase tracking-widest text-slate-950 dark:text-white">Navegación</h2>
+        <div class="grid gap-3 text-sm">
+          <a class="footer-link" href="acerca-de.html">Acerca de</a>
+          <a class="footer-link" href="alianzas.html">Alianzas</a>
+          <a class="footer-link" href="contacto.html">Contacto</a>
+          <a class="footer-link" href="aviso-privacidad.html">Aviso de privacidad</a>
+        </div>
+      </div>
+      <div>
+        <h2 class="mb-4 text-sm font-extrabold uppercase tracking-widest text-slate-950 dark:text-white">Contacto</h2>
+        <div class="grid gap-3 text-sm">
+          <span>+52 55 5254 6809</span>
+          <a class="footer-link" href="mailto:contacto@tecnomedia.com.mx">contacto@tecnomedia.com.mx</a>
+          <span>Lafayette 123, Nueva Anzures, Miguel Hidalgo, CDMX.</span>
         </div>
       </div>
     </div>
-  </div>
-</header>
-<main>
-  <section class="section">
-    <div class="container">
-      <div class="row g-5">
-        <div class="col-lg-7">
-          <div class="eyebrow reveal">Capacidades</div>
-          <h2 class="display-5 section-title reveal">Reduce superficie de ataque sin frenar al usuario.</h2>
-          <ul class="service-list mt-4 reveal">
-            <li><i class="bi bi-check2-circle"></i><span>Administración y protección de cuentas privilegiadas.</span></li>
-<li><i class="bi bi-check2-circle"></i><span>Acceso seguro a aplicaciones privadas sin depender de VPN tradicional.</span></li>
-<li><i class="bi bi-check2-circle"></i><span>Acceso seguro a Internet con controles de política y reducción de superficie de ataque.</span></li>
-<li><i class="bi bi-check2-circle"></i><span>Gestión de vulnerabilidades, APIs, identidades y controles de acceso.</span></li>
-          </ul>
-        </div>
-        <div class="col-lg-5">
-          <div class="detail-panel reveal">
-            <div class="icon-box mb-4"><i class="bi bi-shield-lock"></i></div>
-            <h3 class="h4 fw-bold">Enfoque TecnoMedia</h3>
-            <p>Combinamos controles de identidad, acceso y protección de aplicaciones con una visión Zero Trust y de operación empresarial.</p>
-            <a class="btn btn-light rounded-pill px-4 mt-2" href="contacto.html">Hablar con un experto</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer class="pt-5 pb-4 mt-auto">
-  <div class="container">
-    <div class="row g-4 align-items-start">
-      <div class="col-lg-5">
-        <img class="footer-logo mb-3" src="https://tecnomedia.com.mx/img/logo/logo.jpg" alt="TecnoMedia">
-        <p class="mb-0">Soluciones de tecnología para operar, observar y proteger experiencias digitales.</p>
-      </div>
-      <div class="col-6 col-lg-2">
-        <h6 class="text-white">Empresa</h6>
-        <div class="d-grid gap-2 small">
-          <a href="nosotros.html">Nosotros</a>
-          <a href="alianzas.html">Alianzas</a>
-          <a href="contacto.html">Contacto</a>
-        </div>
-      </div>
-      <div class="col-6 col-lg-2">
-        <h6 class="text-white">Soluciones</h6>
-        <div class="d-grid gap-2 small">
-          <a href="devsecops.html">DevSecOps</a>
-          <a href="observabilidad.html">Observabilidad</a>
-          <a href="ciberseguridad.html">Ciberseguridad</a>
-        </div>
-      </div>
-      <div class="col-lg-3">
-        <h6 class="text-white">Contacto</h6>
-        <p class="small mb-1">+52 55 5254 6809</p>
-        <p class="small mb-1"><a href="mailto:contacto@tecnomedia.com.mx">contacto@tecnomedia.com.mx</a></p>
-        <p class="small mb-0">Lafayette 123, Nueva Anzures, Miguel Hidalgo, CDMX.</p>
-      </div>
-    </div>
-    <hr class="border-secondary my-4">
-    <div class="d-flex flex-column flex-md-row gap-2 justify-content-between small">
-      <span>© <span data-year></span> TecnoMedia.</span>
-      <a href="https://tecnomedia.com.mx/Tecnomedia/AvisoPrivacidad">Aviso de privacidad</a>
+    <div class="mt-12 flex flex-col gap-3 border-t border-slate-200 pt-6 text-sm dark:border-slate-800 md:flex-row md:items-center md:justify-between">
+      <span>© <span data-year></span> TecnoMedia. Todos los derechos reservados.</span>
+      <span>DevSecOps · Observabilidad · Ciberseguridad</span>
     </div>
   </div>
 </footer>
-
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
-  <div id="formToast" class="toast border-0 shadow" role="status" aria-live="polite" aria-atomic="true">
-    <div class="toast-body">
-      <i class="bi bi-send-check me-2"></i>Enviando tu solicitud…
-    </div>
-  </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/main.js"></script>
-
-</body></html>
+<script src="assets/js/app.js" defer></script></body></html>
