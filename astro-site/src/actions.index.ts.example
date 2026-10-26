@@ -1,0 +1,26 @@
+﻿/**
+ * FASE SIGUIENTE.
+ * Las Astro Actions requieren un adapter/runtime de servidor.
+ * Cuando se defina hosting (Cloudflare, Vercel, Netlify, Node, etc.),
+ * este ejemplo se convierte en src/actions/index.ts.
+ */
+import { defineAction, ActionError } from 'astro:actions';
+import { contactSchema } from './security/contact-schema';
+
+export const server = {
+  contacto: defineAction({
+    accept: 'form',
+    input: contactSchema,
+    handler: async (input) => {
+      if (input.website) {
+        throw new ActionError({ code: 'BAD_REQUEST', message: 'Solicitud invalida.' });
+      }
+
+      // TODO: Turnstile server-side
+      // TODO: rate limiting
+      // TODO: OpenPGP server-side
+      // TODO: proveedor de correo
+      return { ok: true };
+    },
+  }),
+};
