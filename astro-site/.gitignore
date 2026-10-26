@@ -24,3 +24,7 @@ pnpm-debug.log*
 .idea/
 .env.*
 !.env.example
+
+_backup-components-*/
+
+_backup-components-*/

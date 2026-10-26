@@ -1,6 +1,17 @@
-﻿<!doctype html><html lang="es"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=acerca-de.html"><link rel="canonical" href="acerca-de.html"><title>Acerca de | TecnoMedia</title></head><body><p>Redirigiendo a <a href="acerca-de.html">Acerca de</a>…</p></body></html>
+﻿---
+const target = '/acerca-de.html';
+---
 
-
-
-
-
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="refresh" content={`0; url=${target}`}>
+    <link rel="canonical" href={target}>
+    <meta name="robots" content="noindex">
+    <title>Acerca de | TecnoMedia</title>
+  </head>
+  <body>
+    <p>Redirigiendo a <a href={target}>Acerca de</a>â€¦</p>
+  </body>
+</html>

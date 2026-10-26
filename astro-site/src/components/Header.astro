@@ -1,0 +1,92 @@
+﻿---
+interface Props {
+  page?: string;
+}
+
+const { page = '' } = Astro.props;
+const isSolutions = page === 'solutions';
+---
+
+<nav
+  class="fixed inset-x-0 top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl transition dark:border-slate-800 dark:bg-slate-950/90"
+  data-navbar
+>
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 lg:px-8">
+    <a href="/index.html" class="tm-brand" aria-label="TecnoMedia - Inicio">
+      <span class="tm-brand-stage" aria-hidden="true">
+        <img src="/assets/logos/tecnomedia-light.png" alt="" class="tm-brand-logo tm-brand-logo-light">
+        <img src="/assets/logos/tecnomedia-dark.png" alt="" class="tm-brand-logo tm-brand-logo-dark">
+      </span>
+      <span class="sr-only">TecnoMedia</span>
+    </a>
+
+    <div class="hidden items-center gap-1 lg:flex">
+      <a class:list={['nav-link', { active: page === 'home' }]} data-nav="home" href="/index.html">Inicio</a>
+      <a class:list={['nav-link', { active: page === 'about' }]} data-nav="about" href="/acerca-de.html">Acerca de</a>
+
+      <div class="group relative">
+        <button
+          class:list={['nav-link inline-flex items-center gap-1', { active: isSolutions }]}
+          type="button"
+          aria-haspopup="true"
+        >
+          Soluciones
+          <svg class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.51a.75.75 0 01-1.08 0l-4.25-4.51a.75.75 0 01.02-1.06z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+
+        <div class="invisible absolute left-0 top-full w-64 translate-y-2 rounded-2xl border border-slate-200 bg-white p-2 opacity-0 shadow-2xl transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 dark:border-slate-800 dark:bg-slate-900">
+          <a class="dropdown-link" href="/devsecops.html">
+            <span class="dropdown-icon">âˆž</span>
+            <span><strong>DevSecOps</strong><small>Entrega y automatizaciÃ³n</small></span>
+          </a>
+          <a class="dropdown-link" href="/observabilidad.html">
+            <span class="dropdown-icon">â—‰</span>
+            <span><strong>Observabilidad</strong><small>Visibilidad end-to-end</small></span>
+          </a>
+          <a class="dropdown-link" href="/ciberseguridad.html">
+            <span class="dropdown-icon">â—‡</span>
+            <span><strong>Ciberseguridad</strong><small>Identidad y protecciÃ³n</small></span>
+          </a>
+        </div>
+      </div>
+
+      <a class:list={['nav-link', { active: page === 'partners' }]} data-nav="partners" href="/alianzas.html">Alianzas</a>
+      <a class:list={['nav-link', { active: page === 'contact' }]} data-nav="contact" href="/contacto.html">Contacto</a>
+
+      <button class="theme-button ml-2" type="button" data-theme-toggle aria-label="Cambiar tema">
+        <span data-theme-icon>â˜¾</span>
+      </button>
+
+      <a href="/contacto.html" class="btn-primary ml-2">Habla con un experto</a>
+    </div>
+
+    <div class="flex items-center gap-2 lg:hidden">
+      <button class="theme-button" type="button" data-theme-toggle aria-label="Cambiar tema">
+        <span data-theme-icon>â˜¾</span>
+      </button>
+      <button class="mobile-button" type="button" data-menu-toggle aria-label="Abrir menÃº" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="hidden border-t border-slate-200 bg-white px-5 py-4 dark:border-slate-800 dark:bg-slate-950 lg:hidden" data-mobile-menu>
+    <div class="mx-auto grid max-w-7xl gap-1">
+      <a class="mobile-link" href="/index.html">Inicio</a>
+      <a class="mobile-link" href="/acerca-de.html">Acerca de</a>
+
+      <div class="my-2 border-t border-slate-200 dark:border-slate-800"></div>
+      <p class="px-3 py-2 text-xs font-bold uppercase tracking-widest text-slate-400">Soluciones</p>
+      <a class="mobile-link" href="/devsecops.html">DevSecOps</a>
+      <a class="mobile-link" href="/observabilidad.html">Observabilidad</a>
+      <a class="mobile-link" href="/ciberseguridad.html">Ciberseguridad</a>
+
+      <div class="my-2 border-t border-slate-200 dark:border-slate-800"></div>
+      <a class="mobile-link" href="/alianzas.html">Alianzas</a>
+      <a class="mobile-link" href="/contacto.html">Contacto</a>
+      <a class="btn-primary mt-3 text-center" href="/contacto.html">Habla con un experto</a>
+    </div>
+  </div>
+</nav>
